@@ -1,4 +1,6 @@
-# A react Practice app(e-commerce) includes routes, project structure, sass, redux, stripe etc  
+# A react Practice app(e-commerce)
+
+Includes routes, project structure, sass, redux, stripe etc
 
 # Getting Started with Create React App
 
