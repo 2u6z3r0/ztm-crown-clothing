@@ -1,3 +1,5 @@
+# A react Practice app(e-commerce) includes routes, project structure, sass, redux, stripe etc  
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
