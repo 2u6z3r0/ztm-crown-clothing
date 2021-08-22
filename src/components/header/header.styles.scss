@@ -20,6 +20,19 @@
 
     .option {
       padding: 10px 15px;
+      cursor: pointer;
+    }
+    .profile {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid gray;
+      width: 30px;
+      height: 30px;
+      padding: 2px;
+      border-radius: 50%;
+      font-size: 30px;
+      font-weight: 600;
     }
   }
 }
