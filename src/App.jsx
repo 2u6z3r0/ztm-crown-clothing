@@ -1,13 +1,15 @@
-import "./App.scss";
-import Header from "components/header/header.component";
-import HomePage from "pages/homepage/homepage.component";
-import ShopPage from "pages/shop/shop.component";
-import SingInSingUpPage from "pages/sign-in-and-sing-up/sign-in-and-sing-up-page";
-import { Route, Switch, Redirect } from "react-router-dom";
-import { auth, createUserProfileDocument } from "./firebase/firebase.util";
-import { Component } from "react";
-import { connect } from "react-redux";
-import { setCurrentUser } from "redux/user/user.actions";
+import './App.scss';
+import Header from 'components/header/header.component';
+import HomePage from 'pages/homepage/homepage.component';
+import ShopPage from 'pages/shop/shop.component';
+import SingInSingUpPage from 'pages/sign-in-and-sing-up/sign-in-and-sing-up-page';
+import { Route, Switch, Redirect } from 'react-router-dom';
+import { auth, createUserProfileDocument } from './firebase/firebase.util';
+import { Component } from 'react';
+import { connect } from 'react-redux';
+import { setCurrentUser } from 'redux/user/user.actions';
+import { selectCurrentUser } from 'redux/user/user.selectors';
+import CheckoutPage from 'pages/checkout/checkout.component';
 
 class App extends Component {
   unSubscribeFromAuth = null;
@@ -16,7 +18,7 @@ class App extends Component {
   componentDidMount() {
     const { setCurrentUser } = this.props;
     this.unSubscribeFromAuth = auth.onAuthStateChanged(async (user) => {
-      console.log("current User ", user);
+      console.log('current User ', user);
       if (user) {
         const userRef = await createUserProfileDocument(user);
         this.unSubScribeFromSnapShot = userRef.onSnapshot((snapShot) => {
@@ -53,6 +55,7 @@ class App extends Component {
               )
             }
           />
+          <Route exact path="/checkout" component={CheckoutPage} />
         </Switch>
       </div>
     );
@@ -60,7 +63,7 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  currentUser: state.user.currentUser,
+  currentUser: selectCurrentUser(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
