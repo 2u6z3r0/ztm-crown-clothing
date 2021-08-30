@@ -1,15 +1,15 @@
-import React from "react";
-import "./header.styles.scss";
-import { Link } from "react-router-dom";
-import { ReactComponent as Logo } from "assets/crown.svg";
-import { auth } from "../../firebase/firebase.util";
-import { connect } from "react-redux";
-import CartIcon from "components/cart-icon/cart-icon.component";
-import CartDropdown from "components/cart-dropdown/cart-dropdown.component";
-import { toggleCartDropDown } from "redux/cart/cart.actions";
+import React from 'react';
+import './header.styles.scss';
+import { Link } from 'react-router-dom';
+import { ReactComponent as Logo } from 'assets/crown.svg';
+import { auth } from '../../firebase/firebase.util';
+import { connect } from 'react-redux';
+import CartIcon from 'components/cart-icon/cart-icon.component';
+import CartDropdown from 'components/cart-dropdown/cart-dropdown.component';
+import { toggleCartDropDown } from 'redux/cart/cart.actions';
 
 const Header = ({ currentUser, showCartDropdown, toggleCart }) => {
-  console.log("current User : ", currentUser);
+  console.log('current User : ', currentUser);
   return (
     <div className="header">
       <Link className="logo-container" to="/">
