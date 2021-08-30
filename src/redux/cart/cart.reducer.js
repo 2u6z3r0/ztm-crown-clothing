@@ -1,4 +1,4 @@
-import { addItemToCart } from './cart.utils';
+import { addItemToCart, removeCartItem } from './cart.utils';
 
 const { cartActionTypes } = require('./cart.actionTypes');
 
@@ -20,12 +20,18 @@ const cartReducer = (currentState = INITIAL_STATE, action) => {
         cartItems: addItemToCart(currentState.cartItems, action.payload),
       };
 
-    case cartActionTypes.REMOVE_ITEM:
+    case cartActionTypes.CLEAR_ITEM:
       return {
         ...currentState,
         cartItems: currentState.cartItems.filter(
           (item) => item.id !== action.payload.id
         ),
+      };
+
+    case cartActionTypes.REMOVE_ITEM:
+      return {
+        ...currentState,
+        cartItems: removeCartItem(currentState.cartItems, action.payload),
       };
 
     default:
